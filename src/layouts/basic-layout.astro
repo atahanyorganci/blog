@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string | null;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<title>{title}</title>
+		{description && <meta name="description" content={description} />}
+		{/* Favicon */}
+		{/* Twitter */}
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		{description && <meta name="twitter:description" content={description} />}
+		<meta name="twitter:creator" content="@AtahanYorganci" />
+		{/* Open Graph */}
+		<meta name="og:title" content={title} />
+		{description && <meta name="og:description" content={description} />}
+		<meta name="og:type" content="website" />
+		<meta name="og:site_name" content="NixCasks" />
+		<meta name="og:url" content="https://nix-casks.yorganci.dev" />
+		{/* ... */}
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script is:inline defer src="https://assets.onedollarstats.com/stonks.js" id="stonks"></script>
+	</head>
+	<body class="min-h-screen">
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>
