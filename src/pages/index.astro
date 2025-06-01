@@ -8,6 +8,12 @@ const allBlogPosts = await getCollection("blog");
 <BasicLayout title="yorganci.dev">
 	<h1>Blog</h1>
 	<ul>
-		{allBlogPosts.map(({ data: { title } }) => <li>{title}</li>)}
+		{
+			allBlogPosts.map(({ id, data: { title } }) => (
+				<a href={`/blog/${id}`}>
+					<li>{title}</li>
+				</a>
+			))
+		}
 	</ul>
 </BasicLayout>
