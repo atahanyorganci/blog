@@ -1,5 +1,7 @@
 ---
+import { getCollection } from "astro:content";
 
+const allBlogPosts = await getCollection("blog");
 ---
 
 <html lang="en">
@@ -11,6 +13,9 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1>Blog</h1>
+		<ul>
+			{allBlogPosts.map(({ data: { title } }) => <li>{title}</li>)}
+		</ul>
 	</body>
 </html>
