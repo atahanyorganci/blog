@@ -1,5 +1,4 @@
 import antfu from "@antfu/eslint-config";
-import tailwind from "eslint-plugin-tailwindcss";
 
 export default antfu({
 	astro: true,
@@ -10,6 +9,4 @@ export default antfu({
 		semi: true,
 		indent: "tab",
 	},
-}).append(
-	tailwind.configs["flat/recommended"],
-);
+});
